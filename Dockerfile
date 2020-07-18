@@ -5,7 +5,7 @@ RUN apk add --update \
 	git \
 	&& rm -rf /var/cache/apk/ \
 	&& mkdir -p /var/lib/ghost/content/adapters/storage/b2 \
-	&& cd /var/lib/ghost/content//adapters/b2 \
+	&& cd /var/lib/ghost/content/adapters/b2 \
 	&& git clone git@github.com:martiendt/ghost-storage-adapter-b2.git . \
 	&& npm install
 
