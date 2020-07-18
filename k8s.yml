@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${NAME}
+  labels:
+    app: ${NAME}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${NAME}
+  template:
+    metadata:
+      labels:
+        app: ${NAME}
+    spec:
+      containers:
+      - name: ${NAME}
+        image: ${IMAGE}:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 2368
+        env:
+          - name: url
+            value: 'https://matthewgall.com'
+          - name: database__client
+            value: mysql
+          - name: database__connection__database
+            value: matthew-ghost
+          - name: database__connection__host
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: db-host
+          - name: database__connection__port
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: db-port
+          - name: database__connection__user
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: db-username
+          - name: database__connection__password
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: db-password
+          - name: database__connection__ssl__ca
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: db-cert
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${NAME}-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  labels:
+    "use-cloudflare-solver": "true"
+spec:
+  rules:
+  - host: "matthewgall.com"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ${NAME}
+          servicePort: http
+  - host: "*.matthewgall.com"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ${NAME}
+          servicePort: http
+  tls:
+  - hosts:
+    - 'matthewgall.com'
+    - '*.matthewgall.com'
+    secretName: ${NAME}-cert
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${NAME}
+spec:
+  ports:
+  - name: http
+    targetPort: 2368
+    port: 80
+  selector:
+    app: ${NAME}
