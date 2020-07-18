@@ -16,13 +16,35 @@ spec:
     spec:
       containers:
       - name: ${NAME}
-        image: ${IMAGE}:latest
+        image: ${IMAGE}:edge
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
         env:
           - name: url
             value: 'https://matthewgall.com'
+          - name: storage__active
+            value: b2
+          - name: storage__b2__accountId
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: b2-acc-id
+          - name: storage__b2__key
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: b2-acc-key 
+          - name: storage__b2__bucketId
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: b2-bucket-id  
+          - name: storage__b2__bucketName
+            valueFrom:
+              secretKeyRef:
+                name: ${NAME}-secrets
+                key: b2-bucket-name   
           - name: database__client
             value: mysql
           - name: database__connection__database

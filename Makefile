@@ -5,10 +5,12 @@ export COLO:=$(shell kubectx -c)
 
 .PHONY: apply
 apply:
+	@cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
 	@cat k8s.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
 
 .PHONY: delete
 delete:
+	@cat secrets.yml | envsubst | kubectl delete -n ${NAMESPACE} -f -
 	@cat k8s.yml | envsubst | kubectl delete -n ${NAMESPACE} -f -
 
 .PHONY: deploy
