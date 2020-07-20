@@ -8,6 +8,10 @@ apply:
 	@cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
 	@cat k8s.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
 
+.PHONY: apply-multi
+apply-multi:
+	@.utils/deploy-all.sh
+
 .PHONY: delete
 delete:
 	@cat secrets.yml | envsubst | kubectl delete -n ${NAMESPACE} -f -
