@@ -4,9 +4,10 @@ MAINTAINER Matthew Gall <docker@matthewgall.com>
 RUN apk add --update \
 	git \
 	&& rm -rf /var/cache/apk/ \
-	&& mkdir -p /var/lib/ghost/content/adapters/storage/b2 \
-	&& cd /var/lib/ghost/content/adapters/storage/b2 \
-	&& git clone https://github.com/bluemeda/ghost-storage-adapter-b2.git . \
+	&& mkdir -p /var/lib/ghost/content/adapters/storage \
+	&& cd /var/lib/ghost/content/adapters/storage \
+	&& git clone https://github.com/bluemeda/ghost-storage-adapter-b2.git b2 \
+	&& cd b2 \
 	&& npm install
 
 COPY content/images /var/lib/ghost/content/images
