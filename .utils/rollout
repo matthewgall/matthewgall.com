@@ -1,15 +1,20 @@
 #!/bin/bash
 
+if [ "$1" = "all" ]; then
+  TARGETS=$(kubectx)
+else
+  TARGETS=$1
+fi
+
 echo "==================================================="
 while IFS= read -r line
 do
-  echo "Deploying to ${line}"
+  echo "Rolling to ${line}"
   echo "==================================================="
 
   kubectx "$line" > /dev/null
-  cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
-  cat k8s.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
+  kubectl rollout restart deployment/${NAME} -n ${NAMESPACE} && kubectl rollout status deployment/${NAME} -n ${NAMESPACE}
 
   echo ""
   echo "==================================================="
-done <<< $(kubectx)
+done <<< $TARGETS

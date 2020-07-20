@@ -3,20 +3,20 @@ export NAMESPACE?=matthewgall
 export IMAGE?=matthewgall/matthewgall.com
 export COLO:=$(shell kubectx -c)
 
-.PHONY: apply
+.PHONY: apply apply-all
 apply:
-	@cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
-	@cat k8s.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
+	@.utils/apply ${COLO}
+apply-all:
+	@.utils/apply all
 
-.PHONY: apply-multi
-apply-multi:
-	@.utils/deploy-all.sh
-
-.PHONY: delete
+.PHONY: delete delete-all
 delete:
-	@cat secrets.yml | envsubst | kubectl delete -n ${NAMESPACE} -f -
-	@cat k8s.yml | envsubst | kubectl delete -n ${NAMESPACE} -f -
+	@.utils/delete ${COLO}
+apply-all:
+	@.utils/delete all
 
-.PHONY: deploy
-deploy:
-	kubectl rollout restart deployment/${NAME} -n ${NAMESPACE} && kubectl rollout status deployment/${NAME} -n ${NAMESPACE}
+.PHONY: rollout rollout-all
+rollout:
+	@.utils/rollout ${COLO}
+rollout-all:
+	@.utils/rollout all
