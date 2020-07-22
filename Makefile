@@ -12,7 +12,7 @@ apply-all:
 .PHONY: delete delete-all
 delete:
 	@.utils/delete ${COLO}
-apply-all:
+delete-all:
 	@.utils/delete all
 
 .PHONY: rollout rollout-all

@@ -13,8 +13,8 @@ do
   echo "==================================================="
 
   kubectx "$line" > /dev/null
-  cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
   cat k8s.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
+  cat secrets.yml | envsubst | kubectl apply -n ${NAMESPACE} -f -
 
   echo ""
   echo "==================================================="
