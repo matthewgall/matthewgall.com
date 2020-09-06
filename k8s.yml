@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: ${NAME}
-        image: ${IMAGE}:3.29.2
+        image: ${IMAGE}:3.31.5
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
