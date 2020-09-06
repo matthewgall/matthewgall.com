@@ -1,4 +1,4 @@
-FROM ghost:3-alpine
+FROM ghost:3.29.2-alpine
 MAINTAINER Matthew Gall <docker@matthewgall.com>
 
 RUN apk add --update \
