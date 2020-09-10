@@ -86,7 +86,7 @@ metadata:
   name: ${NAME}-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: zerossl-prod
   labels:
     "use-cloudflare-solver": "true"
 spec:
@@ -98,7 +98,7 @@ spec:
         backend:
           serviceName: ${NAME}
           servicePort: http
-  - host: "*.matthewgall.com"
+  - host: "www.matthewgall.com"
     http:
       paths:
       - path: /
@@ -108,7 +108,7 @@ spec:
   tls:
   - hosts:
     - 'matthewgall.com'
-    - '*.matthewgall.com'
+    - 'www.matthewgall.com'
     secretName: ${NAME}-cert
 ---
 apiVersion: v1
