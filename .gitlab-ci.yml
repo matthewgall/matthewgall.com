@@ -5,13 +5,13 @@ variables:
 
 test:
   script:
-  - hugo
+  - hugo --minify
   rules:
     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
 pages:
   script:
-  - hugo
+  - hugo --minify
   artifacts:
     paths:
     - public
