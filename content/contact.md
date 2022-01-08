@@ -12,6 +12,7 @@ Want to get in touch with me? It couldn't be easier!
 
 ## Encrypted
 [Telegram &raquo;](https://t.me/matthewgall)  
+[Threema &raquo;](https://threema.id/KTRDPX9W)  
 [Session &raquo;](session:059ff39ce60c5686f71e6f84fa9949c46978c202b61c9a2f5d1c2245a86bd58b2b)  
 
 ## PGP
