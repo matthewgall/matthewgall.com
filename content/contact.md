@@ -9,6 +9,7 @@ Want to get in touch with me? It couldn't be easier!
 [Twitter &raquo;](https://twitter.com/matthewgall)  
 [Facebook &raquo;](https://facebook.com/thematthewgall)  
 [Instagram &raquo;](https://instagram.com/thematthewgall)  
+[Mastodon &raquo;](https://gall.family/@matthew)  
 
 ## Encrypted
 [Telegram &raquo;](https://t.me/matthewgall)  
