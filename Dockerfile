@@ -1,5 +1,4 @@
 FROM klakegg/hugo:0.91.2-onbuild AS hugo
-COPY . /src
 
 FROM nginx:alpine
 COPY --from=hugo /target /usr/share/nginx/html
