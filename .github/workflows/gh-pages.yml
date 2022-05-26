@@ -42,8 +42,10 @@ jobs:
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
 
-      - name: Deploy to matthewgall.fly.dev
+      - name: Install flyctl to prepare for matthewgall.fly.dev deploy
         uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+
+      - name: Deploy to matthewgall.fly.dev
+        run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
