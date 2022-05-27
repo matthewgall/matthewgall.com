@@ -45,7 +45,7 @@ jobs:
       - name: Deploy to wasabisys.com
         uses: mchangrh/s3-sync-action@v1
         with:
-          args: --acl-public --follow-symlinks --delete
+          args: --acl-public --follow-symlinks --delete-removed
         env:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
