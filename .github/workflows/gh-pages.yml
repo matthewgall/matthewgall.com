@@ -33,6 +33,7 @@ jobs:
           external_repository: matthewgall/matthewgall.github.io
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./public
+          cname: matthewgall.com
 
       - name: Deploy to matthewgall.surge.sh
         uses: dswistowski/surge-sh-action@v1
