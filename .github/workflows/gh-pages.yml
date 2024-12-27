@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to fly.io and surge.sh
 
 on:
   push:
