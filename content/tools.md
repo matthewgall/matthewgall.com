@@ -39,22 +39,4 @@ Seeing abusive behaviour from an IP address, or on an IP address. Need to know w
 Ever wanted to run your own IP lookup service like canhazip.com? Don't want to resort to awful PHP? Powered by Python and bottle, now you can!
 
 [Visit »](https://ipinfo.in)  
-[Source »](https://github.com/matthewgall/ipinfo.in)  
-
-### whereismy.family
-
-[Visit »](https://whereismy.family)  
-[Source »](https://gitlab.com/matthewgall/whereismy.family)  
-
-## Chatbots
-
-### 1.1.1.1 - Cloudflare DNS
-
-[oneoneoneonebot](https://t.me/oneoneoneonebot)  
-[onezerozeroonebot](https://t.me/onezerozeroonebot)  
-[onedotonedotonedotonedotbot](https://t.me/onedotonedotonedotonedotbot)  
-[cloudflarednsbot](https://t.me/cloudflarednsbot)
-
-### urlscan.io
-
-[urlscanbot](https://t.me/urlscanbot)
+[Source »](https://github.com/matthewgall/ipinfo.in)
