@@ -25,12 +25,3 @@ Want to get in touch with me? It couldn't be easier!
 
 ## E-Mail
 hello [at]
-
-## Letters & Parcels
-Some people like letters, no idea why....
-
-### Letters
-Box 74983,
-PO Box 92,
-Cardiff,
-CF11 1NB
