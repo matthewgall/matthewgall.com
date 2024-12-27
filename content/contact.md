@@ -6,10 +6,11 @@ layout: staticpage
 Want to get in touch with me? It couldn't be easier!
 
 ## Social Media
-[Twitter &raquo;](https://twitter.com/matthewgall)  
+[Bluesky &raquo;](http://bsky.app/profile/matthewgall.com)  
 [Facebook &raquo;](https://facebook.com/thematthewgall)  
 [Instagram &raquo;](https://instagram.com/thematthewgall)  
-[Mastodon &raquo;](https://gall.family/@matthew)  
+[Mastodon &raquo;](https://toot.wales/@matthewgall)  
+[Twitter &raquo;](https://twitter.com/matthewgall)  
 
 ## Encrypted
 [Telegram &raquo;](https://t.me/matthewgall)  
