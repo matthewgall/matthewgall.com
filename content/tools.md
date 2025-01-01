@@ -14,13 +14,6 @@ asnjson.com is a simple frontend to the amazing Team Cymru, IP to ASN lookup too
 [Visit »](https://asnjson.com)  
 [Source »](https://github.com/matthewgall/asnjson.com)  
 
-### count.re
-
-Sometimes we just need a counter, nothing magic, just a simple counter. If you need this, then count.re is for you!
-
-[Visit »](https://count.re)  
-[Source »](https://github.com/matthewgall/count.re)  
-
 ### dnsjson.com
 
 For when DNS is a pain, and parsing DNS is even worse. Pick any supported record type, and get back JSON or plain text responses direct to your app.
