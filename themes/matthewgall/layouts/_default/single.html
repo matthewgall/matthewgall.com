@@ -13,10 +13,27 @@
         </ol>
       </nav>
       
-      <h1 class="page-title" id="main-heading">{{ .Title }}</h1>
+      <h1 class="page-title post-title-no-gradient" id="main-heading">{{ .Title }}</h1>
       
-      {{ if .Summary }}
-        <p class="page-summary" role="doc-subtitle">{{ .Summary }}</p>
+      {{ if .Params.summary }}
+        <p class="post-hero-summary">{{ .Params.summary }}</p>
+      {{ end }}
+      
+      <!-- Only show post meta for posts, not regular pages -->
+      {{ if eq .Type "posts" }}
+        <div class="post-meta" role="doc-info">
+          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" 
+                aria-label="Published {{ .Date.Format "January 2, 2006" }}">
+            <span aria-hidden="true">📅</span>
+            {{ .Date.Format "January 2, 2006" }}
+          </time>
+          {{ if .ReadingTime }}
+            <span class="reading-time" aria-label="Estimated reading time {{ .ReadingTime }} minutes">
+              <span aria-hidden="true">⏱️</span>
+              {{ .ReadingTime }} min read
+            </span>
+          {{ end }}
+        </div>
       {{ end }}
     </div>
   </div>

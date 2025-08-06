@@ -1038,6 +1038,15 @@ a:focus {
   color: var(--text-primary) !important;
 }
 
+/* Post Title - No Gradient */
+.post-title-no-gradient {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: var(--text-primary) !important;
+}
+
 /* Posts list title - normal styling */
 .posts-list-title {
   color: var(--text-primary) !important;
