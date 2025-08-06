@@ -2000,9 +2000,8 @@ a:focus {
     font-size: var(--text-sm);
   }
   
-  /* Hide stats and tech stack on mobile homepage */
-  .hero-stats,
-  .hero-tech-stack {
+  /* Hide entire hero visual container on mobile homepage */
+  .hero-visual {
     display: none;
   }
 }/* Single Page Styles with Accessibility Features */
