@@ -1,10 +1,19 @@
 {{ define "main" }}
-<section class="page-header">
+<section class="page-hero">
   <div class="container">
-    <h1 class="page-title">{{ .Title }}</h1>
-    {{ if .Description }}
-      <p class="page-description">{{ .Description }}</p>
-    {{ end }}
+    <div class="page-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">{{ .Title }}</li>
+        </ol>
+      </nav>
+      
+      <h1 class="page-title posts-list-title">{{ .Title }}</h1>
+      {{ if .Description }}
+        <p class="page-summary">{{ .Description }}</p>
+      {{ end }}
+    </div>
   </div>
 </section>
 

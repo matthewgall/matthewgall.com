@@ -161,6 +161,18 @@
   max-width: 800px;
 }
 
+/* Post Hero Summary */
+.post-hero-summary {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--space-6);
+  max-width: 500px;
+  text-align: left;
+  font-style: italic;
+  opacity: 0.85;
+}
+
 /* Post Meta in Hero */
 .page-hero .post-meta {
   display: flex;
@@ -296,6 +308,7 @@
 /* Accessibility Panel */
 .content-accessibility {
   margin-top: var(--space-12);
+  margin-bottom: var(--space-16);
   padding-top: var(--space-8);
 }
 

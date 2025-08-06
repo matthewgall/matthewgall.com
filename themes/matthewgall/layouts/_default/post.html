@@ -15,6 +15,10 @@
       
       <h1 class="page-title" id="main-heading">{{ .Title }}</h1>
       
+      {{ if .Params.summary }}
+        <p class="post-hero-summary">{{ .Params.summary }}</p>
+      {{ end }}
+      
       <div class="post-meta" role="doc-info">
         <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" 
               aria-label="Published {{ .Date.Format "January 2, 2006" }}">

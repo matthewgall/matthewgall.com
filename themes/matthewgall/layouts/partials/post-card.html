@@ -15,9 +15,13 @@
       </div>
     </header>
     
-    {{ if .Summary }}
+    {{ if or .Params.summary .Summary }}
       <div class="post-card-excerpt">
-        {{ .Summary }}
+        {{ if .Params.summary }}
+          {{ .Params.summary }}
+        {{ else }}
+          {{ .Summary | truncate 150 "..." }}
+        {{ end }}
       </div>
     {{ end }}
     
