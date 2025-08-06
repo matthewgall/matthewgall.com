@@ -1,0 +1,43 @@
+{{ if .Get "id" }}
+<div class="twitter-embed">
+  <blockquote class="twitter-tweet" data-theme="{{ if eq (site.Params.default_theme | default "light") "dark" }}dark{{ else }}light{{ end }}">
+    <p lang="{{ .Get "lang" | default "en" }}" dir="ltr">
+      {{ if .Get "text" }}{{ .Get "text" }}{{ end }}
+    </p>
+    <a href="https://twitter.com/{{ .Get "user" }}/status/{{ .Get "id" }}">
+      {{ .Get "date" | default "View Tweet" }}
+    </a>
+  </blockquote>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<style>
+.twitter-embed {
+  margin: var(--space-6) 0;
+  text-align: center;
+}
+
+.twitter-embed .twitter-tweet {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--border-primary);
+  margin: 10px 5px;
+  max-width: 468px;
+  width: 100%;
+  box-sizing: border-box;
+}
+</style>
+{{ else }}
+<div class="alert alert-error">
+  <strong>Error:</strong> Twitter shortcode requires an 'id' parameter.
+  <br>
+  <strong>Usage:</strong> <code>&#123;&#123;&lt; twitter id="1234567890" user="username" &gt;&#125;&#125;</code>
+</div>
+{{ end }}

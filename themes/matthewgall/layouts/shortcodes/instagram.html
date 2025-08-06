@@ -1,0 +1,36 @@
+{{ if .Get "id" }}
+<div class="instagram-embed">
+  <blockquote 
+    class="instagram-media" 
+    data-instgrm-captioned 
+    data-instgrm-permalink="https://www.instagram.com/p/{{ .Get "id" }}/" 
+    data-instgrm-version="14">
+  </blockquote>
+  <script async src="//www.instagram.com/embed.js"></script>
+</div>
+
+<style>
+.instagram-embed {
+  margin: var(--space-6) 0;
+  text-align: center;
+}
+
+.instagram-media {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin: 1px;
+  max-width: 540px;
+  min-width: 326px;
+  padding: 0;
+  width: calc(100% - 2px);
+}
+</style>
+{{ else }}
+<div class="alert alert-error">
+  <strong>Error:</strong> Instagram shortcode requires an 'id' parameter.
+  <br>
+  <strong>Usage:</strong> <code>&#123;&#123;&lt; instagram id="ABC123xyz" &gt;&#125;&#125;</code>
+</div>
+{{ end }}

@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <p class="footer-title">{{ .Site.Title }}</p>
+        {{ with .Site.Params.description }}
+          <p class="footer-description">{{ . }}</p>
+        {{ end }}
+      </div>
+      
+      {{ if .Site.Params.social }}
+        <div class="footer-section">
+          <h4 class="footer-heading">Connect</h4>
+          <div class="social-links">
+            {{ range $name, $url := .Site.Params.social }}
+              <a href="{{ $url }}" class="social-link" rel="noopener noreferrer" target="_blank" aria-label="{{ $name }}">
+                {{ partial "social-icon.html" $name }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+      
+      <div class="footer-section">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-nav">
+          {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">
+        {{ with .Site.Copyright }}{{ . | safeHTML }} {{ now.Year }}{{ else }}&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.{{ end }}
+      </p>
+      <p class="powered-by">
+        Powered by <a href="https://gohugo.io" rel="noopener noreferrer" target="_blank">Hugo</a>
+      </p>
+    </div>
+  </div>
+</footer>

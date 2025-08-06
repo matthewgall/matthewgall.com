@@ -1,0 +1,39 @@
+{{ if and (.Get "id") (.Get "user") }}
+<div class="codepen-embed">
+  <p class="codepen" 
+     data-height="{{ .Get "height" | default "400" }}" 
+     data-theme-id="{{ .Get "theme" | default "dark" }}" 
+     data-default-tab="{{ .Get "tab" | default "result" }}" 
+     data-slug-hash="{{ .Get "id" }}" 
+     data-user="{{ .Get "user" }}" 
+     style="height: {{ .Get "height" | default "400" }}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+    <span>
+      See the Pen <a href="https://codepen.io/{{ .Get "user" }}/pen/{{ .Get "id" }}">
+        {{ .Get "title" | default "CodePen Example" }}
+      </a> by {{ .Get "user" }} 
+      (<a href="https://codepen.io/{{ .Get "user" }}">@{{ .Get "user" }}</a>) on 
+      <a href="https://codepen.io">CodePen</a>.
+    </span>
+  </p>
+  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+</div>
+
+<style>
+.codepen-embed {
+  margin: var(--space-6) 0;
+}
+
+.codepen-embed .codepen {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-primary) !important;
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+}
+</style>
+{{ else }}
+<div class="alert alert-error">
+  <strong>Error:</strong> CodePen shortcode requires 'id' and 'user' parameters.
+  <br>
+  <strong>Usage:</strong> <code>&#123;&#123;&lt; codepen id="xyz123" user="username" title="My Pen" &gt;&#125;&#125;</code>
+</div>
+{{ end }}

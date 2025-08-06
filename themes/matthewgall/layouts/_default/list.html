@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ if .Description }}
+      <p class="page-description">{{ .Description }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<section class="posts-list">
+  <div class="container">
+    {{ if .Pages }}
+      <div class="posts-grid">
+        {{ range .Pages }}
+          {{ partial "post-card.html" . }}
+        {{ end }}
+      </div>
+      
+      {{ partial "pagination.html" . }}
+    {{ else }}
+      <div class="no-posts">
+        <p>No posts found.</p>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "en" }}" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {{ block "title" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+  {{ end }}
+  
+  {{ partial "head.html" . }}
+</head>
+<body class="{{ if .Site.Params.theme_preference }}theme-{{ .Site.Params.theme_preference }}{{ end }}{{ if .IsHome }} home{{ end }}">
+  <div class="site-container">
+    {{ partial "header.html" . }}
+    
+    <main class="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "footer.html" . }}
+  </div>
+  
+  {{ partial "scripts.html" . }}
+</body>
+</html>

@@ -1,0 +1,32 @@
+<article class="post-card">
+  <div class="post-card-content">
+    <header class="post-card-header">
+      <h3 class="post-card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h3>
+      
+      <div class="post-card-meta">
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "Jan 2, 2006" }}
+        </time>
+        {{ if .ReadingTime }}
+          <span class="reading-time">{{ .ReadingTime }} min read</span>
+        {{ end }}
+      </div>
+    </header>
+    
+    {{ if .Summary }}
+      <div class="post-card-excerpt">
+        {{ .Summary }}
+      </div>
+    {{ end }}
+    
+    {{ if .Params.tags }}
+      <div class="post-card-tags">
+        {{ range first 3 .Params.tags }}
+          <span class="tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</article>

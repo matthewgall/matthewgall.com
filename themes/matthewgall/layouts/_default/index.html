@@ -1,0 +1,177 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="hero-modern">
+  <div class="hero-background">
+    <div class="hero-grid"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-greeting">
+          <span class="greeting-emoji">👋</span>
+          <span class="greeting-text">Hello, I'm</span>
+        </div>
+        <h1 class="hero-name">Matthew Gall</h1>
+        <p class="hero-description">
+          An anti-abuse engineer and security professional specializing in Trust & Safety, threat intelligence, 
+          and building systems that protect digital platforms from malicious actors.
+        </p>
+        <div class="hero-actions">
+          <a href="/about" class="btn btn-primary">
+            <span>About Me</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="/posts" class="btn btn-secondary">
+            <span>Read My Posts</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-content">
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">{{ len (where .Site.RegularPages "Type" "posts") }}</span>
+                <span class="stat-label">Posts</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ sub now.Year 2010 }}+</span>
+                <span class="stat-label">Years Coding</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Tea Cups</span>
+              </div>
+            </div>
+            <div class="hero-tech-stack">
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="tech-icon">
+                Python
+              </div>
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg" alt="JavaScript" class="tech-icon">
+                JavaScript
+              </div>
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" alt="TypeScript" class="tech-icon">
+                TypeScript
+              </div>
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/serverless.svg" alt="Serverless" class="tech-icon">
+                Serverless
+              </div>
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg" alt="Docker" class="tech-icon">
+                Docker
+              </div>
+              <div class="tech-item">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg" alt="Node.js" class="tech-icon">
+                Node.js
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What I Do Section -->
+<section class="what-i-do">
+  <div class="container">
+    <h2 class="section-title">What I Do</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Anti-Abuse Engineering</h3>
+        <p>Building systems and algorithms to detect, prevent, and mitigate abuse across digital platforms.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3>Trust & Safety</h3>
+        <p>Developing policies, systems, and processes to protect users and the general public from digital harm.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🕵️</div>
+        <h3>Security Intelligence</h3>
+        <p>Gathering, analyzing, and acting on threat intelligence to protect against emerging security risks.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Automation & Tooling</h3>
+        <p>Creating automated solutions and tools that scale security operations and incident response.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Data Analysis</h3>
+        <p>Mining security data to identify patterns, trends, and indicators of malicious behavior.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📝</div>
+        <h3>Technical Writing</h3>
+        <p>Documenting security practices, threat analysis, and sharing insights with the infosec community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Posts Section -->
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
+{{ if gt (len $posts) 0 }}
+<section class="recent-posts">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Latest Posts</h2>
+      <p class="section-subtitle">Thoughts, tutorials, and insights from my journey in tech</p>
+    </div>
+    <div class="posts-grid">
+      {{ range first 3 $posts }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
+    </div>
+    
+    {{ if gt (len $posts) 3 }}
+      <div class="view-all">
+        <a href="/posts/" class="btn btn-primary">
+          <span>View All Posts</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<!-- Connect Section -->
+<section class="connect-section">
+  <div class="container">
+    <div class="connect-content">
+      <h2>Let's Connect</h2>
+      <p>Always excited to collaborate on interesting projects or chat about technology</p>
+      <div class="connect-actions">
+        {{ if .Site.Params.social }}
+          <div class="social-links-large">
+            {{ range $name, $url := .Site.Params.social }}
+              <a href="{{ $url }}" class="social-link-large" rel="noopener noreferrer" target="_blank" aria-label="{{ $name | title }}">
+                {{ partial "social-icon.html" $name }}
+                <span>{{ $name | title }}</span>
+              </a>
+            {{ end }}
+          </div>
+        {{ end }}
+        <a href="/contact" class="btn btn-primary btn-large">
+          <span>Get In Touch</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

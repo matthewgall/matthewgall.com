@@ -1,0 +1,92 @@
+{{ if or .Prev .Next }}
+<nav class="post-navigation" role="navigation" aria-label="Post navigation">
+  <div class="nav-links">
+    {{ if .Prev }}
+      <div class="nav-previous">
+        <a href="{{ .Prev.RelPermalink }}" rel="prev" class="nav-link">
+          <span class="nav-direction">← Previous</span>
+          <span class="nav-title">{{ .Prev.Title }}</span>
+        </a>
+      </div>
+    {{ end }}
+    
+    {{ if .Next }}
+      <div class="nav-next">
+        <a href="{{ .Next.RelPermalink }}" rel="next" class="nav-link">
+          <span class="nav-direction">Next →</span>
+          <span class="nav-title">{{ .Next.Title }}</span>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</nav>
+
+<style>
+.post-navigation {
+  margin: var(--space-12) 0;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border-primary);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.nav-previous,
+.nav-next {
+  flex: 1;
+  max-width: 45%;
+}
+
+.nav-next {
+  text-align: right;
+}
+
+.nav-link {
+  display: block;
+  padding: var(--space-4);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.nav-link:hover {
+  background-color: var(--bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-direction {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.nav-title {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+  
+  .nav-previous,
+  .nav-next {
+    max-width: 100%;
+  }
+  
+  .nav-next {
+    text-align: left;
+  }
+}
+</style>
+{{ end }}

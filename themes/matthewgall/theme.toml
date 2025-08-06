@@ -1,0 +1,11 @@
+name = "matthewgall"
+license = "MIT"
+description = "A modern, customizable theme for Matthew Gall's personal website."
+homepage = "https://matthewgall.com"
+tags = ["blog", "personal", "modern", "responsive", "dark-mode", "light-mode", "social-media"]
+features = ["responsive", "dark-mode", "social-embedding", "configurable-nav"]
+min_version = "0.91.0"
+
+[author]
+  name = "Matthew Gall"
+  homepage = "https://matthewgall.com"

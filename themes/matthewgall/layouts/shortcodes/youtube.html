@@ -1,0 +1,66 @@
+{{ if .Get "id" }}
+<div class="youtube-embed">
+  <div class="video-container">
+    <iframe 
+      width="560" 
+      height="315" 
+      src="https://www.youtube-nocookie.com/embed/{{ .Get "id" }}{{ with .Get "start" }}?start={{ . }}{{ end }}{{ if .Get "autoplay" }}&autoplay=1{{ end }}"
+      title="{{ .Get "title" | default "YouTube video player" }}"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+  {{ if .Get "caption" }}
+    <div class="video-caption">
+      {{ .Get "caption" | markdownify }}
+    </div>
+  {{ end }}
+</div>
+
+<style>
+.youtube-embed {
+  margin: var(--space-6) 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
+.video-caption {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.video-caption p {
+  margin: 0;
+}
+</style>
+{{ else }}
+<div class="alert alert-error">
+  <strong>Error:</strong> YouTube shortcode requires an 'id' parameter.
+  <br>
+  <strong>Usage:</strong> <code>&#123;&#123;&lt; youtube id="dQw4w9WgXcQ" title="Video Title" &gt;&#125;&#125;</code>
+</div>
+{{ end }}

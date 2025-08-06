@@ -1,0 +1,44 @@
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="keywords" content="{{ if .Keywords }}{{ delimit .Keywords ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author | default .Site.Title }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ with .Site.Params.og_image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+<meta property="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ with .Site.Params.twitter.creator }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
+{{ with .Site.Params.twitter.site }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+
+<!-- Favicon -->
+{{ with .Site.Params.favicon }}
+  <link rel="icon" href="{{ . | absURL }}">
+{{ else }}
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+{{ end }}
+
+<!-- Preload fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<!-- Styles -->
+{{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<!-- Theme detection script (inline for performance) -->
+<script>
+  (function() {
+    const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.classList.remove('no-js');
+  })();
+</script>
