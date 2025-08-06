@@ -56,6 +56,10 @@ pagerSize = 5
         name = "About"
         url = "/about"
       [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts"
+      [[languages.en.menu.main]]
         identifier = "tools"
         name = "Tools"
         url = "/tools"
