@@ -1555,22 +1555,29 @@ a:focus {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: var(--space-12);
-  align-items: center;
+  gap: var(--space-8);
+  align-items: start;
   position: relative;
   z-index: 2;
+}
+
+.hero-greeting-wrapper {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
 }
 
 .hero-greeting {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .greeting-emoji {
-  font-size: 2rem;
+  font-size: 3rem;
   animation: wave 2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes wave {
@@ -1580,8 +1587,22 @@ a:focus {
 }
 
 .greeting-text {
-  font-size: var(--text-lg);
-  opacity: 0.9;
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  opacity: 0.95;
+  color: white;
+  line-height: 1.1;
+}
+
+.hero-name-inline {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(45deg, #ffffff, #f0f9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-left: var(--space-1);
 }
 
 .hero-name {
@@ -1895,6 +1916,27 @@ a:focus {
   .hero-modern {
     min-height: 70vh;
     padding: var(--space-12) 0;
+  }
+  
+  .hero-greeting-wrapper {
+    margin-bottom: 0;
+  }
+  
+  .hero-greeting {
+    gap: var(--space-2);
+  }
+  
+  .greeting-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .greeting-text {
+    font-size: var(--text-2xl);
+  }
+  
+  .hero-name-inline {
+    font-size: var(--text-2xl);
+    margin-left: calc(var(--space-1) * 0.5);
   }
   
   .hero-name {
