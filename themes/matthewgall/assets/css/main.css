@@ -1029,6 +1029,15 @@ a:focus {
   background-clip: text;
 }
 
+/* Posts List Title - Normal Text */
+.posts-list-title {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  color: var(--text-primary) !important;
+}
+
 /* Posts list title - normal styling */
 .posts-list-title {
   color: var(--text-primary) !important;
