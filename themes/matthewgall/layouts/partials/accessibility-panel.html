@@ -1,0 +1,44 @@
+<!-- Accessibility features -->
+<div class="content-accessibility" role="complementary" aria-labelledby="accessibility-heading" aria-describedby="accessibility-description">
+  <details class="accessibility-panel" id="accessibility-panel">
+    <summary aria-expanded="false" id="accessibility-heading" aria-describedby="accessibility-description" title="Click to open reading and visibility customization options">
+      <span aria-hidden="true">♿</span>
+      Accessibility Options
+      <small class="accessibility-hint" aria-hidden="true">Customize your reading experience</small>
+    </summary>
+    <div id="accessibility-description" class="sr-only">
+      Customize page appearance and readability with font size, contrast, and focus options. These settings will be remembered for your next visit.
+    </div>
+    <div class="accessibility-intro">
+      <p><strong>Make this page work better for you!</strong> These tools can help improve readability and reduce eye strain.</p>
+    </div>
+    <div class="accessibility-options" role="group" aria-labelledby="accessibility-heading">
+      <button class="font-size-btn" data-action="increase-font" aria-label="Increase font size for better readability" aria-describedby="font-increase-help" title="Make text larger and easier to read">
+        <span aria-hidden="true">🔍+</span> Larger Text
+      </button>
+      <div id="font-increase-help" class="sr-only">Makes all text on the page larger and easier to read</div>
+      
+      <button class="font-size-btn" data-action="decrease-font" aria-label="Decrease font size to default" aria-describedby="font-decrease-help" title="Return text to normal size">
+        <span aria-hidden="true">🔍-</span> Smaller Text
+      </button>
+      <div id="font-decrease-help" class="sr-only">Returns text size to normal</div>
+      
+      <button class="contrast-btn" data-action="high-contrast" aria-label="Toggle high contrast mode for better visibility" aria-describedby="contrast-help" aria-pressed="false" title="Increase color contrast for better visibility">
+        <span aria-hidden="true">⚫</span> High Contrast
+      </button>
+      <div id="contrast-help" class="sr-only">Increases color contrast between text and background for easier reading</div>
+      
+      <button class="focus-btn" data-action="focus-mode" aria-label="Enable focus mode to reduce visual distractions" aria-describedby="focus-help" aria-pressed="false" title="Highlight only the main content area">
+        <span aria-hidden="true">🎯</span> Focus Mode
+      </button>
+      <div id="focus-help" class="sr-only">Highlights only the current content area and dims distractions</div>
+      
+      <button class="reset-btn" data-action="reset-all" aria-label="Reset all accessibility settings to default" title="Clear all customizations and return to default appearance">
+        <span aria-hidden="true">↺</span> Reset All
+      </button>
+    </div>
+    <div class="accessibility-footer">
+      <p><small>Settings are saved automatically and will persist across visits. <a href="/contact" aria-label="Contact page for accessibility feedback">Have accessibility feedback?</a></small></p>
+    </div>
+  </details>
+</div>
