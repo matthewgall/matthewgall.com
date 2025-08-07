@@ -1027,7 +1027,14 @@ a:focus {
 }
 
 /* Page Hero Title Styling */
-.page-hero .page-title,
+.page-hero .page-title {
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  margin-bottom: var(--space-6);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .page-header .page-title {
   font-size: var(--text-5xl);
   font-weight: 800;
@@ -1038,14 +1045,6 @@ a:focus {
   background-clip: text;
 }
 
-/* Posts List Title - Normal Text */
-.posts-list-title {
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: initial !important;
-  background-clip: initial !important;
-  color: var(--text-primary) !important;
-}
 
 /* Post Title - No Gradient */
 .post-title-no-gradient {
@@ -1056,16 +1055,15 @@ a:focus {
   color: var(--text-primary) !important;
 }
 
-/* Posts list title - normal styling */
-.posts-list-title {
-  color: var(--text-primary) !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: unset !important;
-  background-clip: unset !important;
+
+.page-hero .page-summary {
+  font-size: var(--text-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.page-hero .page-summary,
 .page-header .page-description {
   font-size: var(--text-xl);
   color: var(--text-secondary);
@@ -2291,10 +2289,16 @@ a:focus {
 /* Page Hero Section */
 .page-hero {
   position: relative;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  background: linear-gradient(135deg, 
+    var(--primary) 0%, 
+    hsl(var(--primary-hue), var(--primary-sat), calc(var(--primary-light) + 10%)) 25%,
+    var(--accent) 75%,
+    var(--accent-hover) 100%
+  );
   padding: var(--space-12) 0 var(--space-8);
   margin-bottom: var(--space-8);
   overflow: hidden;
+  color: white;
 }
 
 .page-hero-background {
@@ -2384,7 +2388,7 @@ a:focus {
   display: flex;
   gap: var(--space-6);
   font-size: var(--text-sm);
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--space-4);
   flex-wrap: wrap;
 }
@@ -2393,6 +2397,92 @@ a:focus {
   display: flex;
   align-items: center;
   gap: var(--space-1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Breadcrumb in Page Hero */
+.page-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.page-hero .breadcrumb a:hover {
+  color: white;
+}
+
+.page-hero .breadcrumb li[aria-current="page"] {
+  color: white;
+}
+
+/* Dark mode page hero - more subtle gradient */
+:root[data-theme="dark"] .page-hero {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .page-hero .page-title {
+  background: linear-gradient(135deg, var(--text-primary), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+:root[data-theme="dark"] .page-hero .page-summary {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .page-hero .post-meta,
+:root[data-theme="dark"] .page-hero .post-meta > * {
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .page-hero .breadcrumb a {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .page-hero .breadcrumb a:hover {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .page-hero .breadcrumb li[aria-current="page"] {
+  color: var(--text-primary);
+}
+
+/* System preference dark mode */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .page-hero {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    color: var(--text-primary);
+  }
+
+  :root:not([data-theme]) .page-hero .page-title {
+    background: linear-gradient(135deg, var(--text-primary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+  }
+
+  :root:not([data-theme]) .page-hero .page-summary {
+    color: var(--text-secondary);
+  }
+
+  :root:not([data-theme]) .page-hero .post-meta,
+  :root:not([data-theme]) .page-hero .post-meta > * {
+    color: var(--text-muted);
+  }
+
+  :root:not([data-theme]) .page-hero .breadcrumb a {
+    color: var(--text-secondary);
+  }
+
+  :root:not([data-theme]) .page-hero .breadcrumb a:hover {
+    color: var(--text-primary);
+  }
+
+  :root:not([data-theme]) .page-hero .breadcrumb li[aria-current="page"] {
+    color: var(--text-primary);
+  }
 }
 
 /* Content Wrapper */
