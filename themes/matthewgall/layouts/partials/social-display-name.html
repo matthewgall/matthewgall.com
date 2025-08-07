@@ -1,0 +1,17 @@
+{{- $name := lower . -}}
+{{- $icons := dict 
+  "twitter" "X (Twitter)"
+  "github" "GitHub"
+  "linkedin" "LinkedIn"
+  "instagram" "Instagram"
+  "youtube" "YouTube"
+  "bluesky" "Bluesky"
+  "threads" "Threads"
+  "email" "Email"
+  "rss" "RSS"
+-}}
+{{- if index $icons $name -}}
+  {{- index $icons $name -}}
+{{- else -}}
+  {{- $name | title -}}
+{{- end -}}

@@ -1257,7 +1257,7 @@ a:focus {
   
   .posts-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-8);
   }
   
   .post-title {
@@ -2014,7 +2014,7 @@ a:focus {
   }
   
   .posts-list .posts-grid {
-    gap: var(--space-10);
+    gap: var(--space-12);
     max-width: 100%;
   }
   
@@ -2053,7 +2053,7 @@ a:focus {
   }
   
   .post-card {
-    padding: var(--space-5);
+    padding: var(--space-6);
   }
   
   .post-card-excerpt {
@@ -2064,7 +2064,210 @@ a:focus {
   .hero-visual {
     display: none;
   }
-}/* Single Page Styles with Accessibility Features */
+}
+
+/* Extra Small Screens - 360px and below */
+@media (max-width: 360px) {
+  .hero-modern {
+    min-height: 60vh;
+    padding: var(--space-8) 0;
+  }
+  
+  .greeting-emoji {
+    font-size: 2rem;
+  }
+  
+  .greeting-text {
+    font-size: var(--text-xl);
+  }
+  
+  .hero-name-inline {
+    font-size: var(--text-xl);
+  }
+  
+  .hero-name {
+    font-size: var(--text-3xl);
+  }
+  
+  .hero-tagline {
+    font-size: var(--text-base);
+  }
+  
+  .hero-description {
+    font-size: var(--text-sm);
+  }
+  
+  .hero-greeting {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .hero-actions {
+    margin-top: var(--space-6);
+  }
+  
+  .hero-actions .btn {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+  }
+  
+  .hero-card {
+    padding: var(--space-6);
+  }
+  
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .stat-number {
+    font-size: var(--text-xl);
+  }
+  
+  .tech-item {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-xs);
+  }
+}
+
+/* Social Share Styles */
+.social-share {
+  margin: var(--space-4) 0;
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-share::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.social-share-title {
+  margin: 0 0 var(--space-4) 0 !important;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.social-share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-4);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--text-sm);
+  transition: all var(--transition);
+  cursor: pointer;
+  min-width: 120px;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.share-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  color: white;
+}
+
+.share-button.twitter:hover {
+  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+  border-color: #1da1f2;
+}
+
+.share-button.linkedin:hover {
+  background: linear-gradient(135deg, #0077b5, #005885);
+  border-color: #0077b5;
+}
+
+.share-button.bluesky:hover {
+  background: linear-gradient(135deg, #0085ff, #0066cc);
+  border-color: #0085ff;
+}
+
+.share-button.threads:hover {
+  background: linear-gradient(135deg, #000000, #333333);
+  border-color: #000000;
+}
+
+.share-button.copy-link:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  border-color: var(--primary);
+}
+
+.share-button.copied {
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: white;
+  border-color: var(--success);
+}
+
+/* Override prose content styles for social share icons */
+.social-share img {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .social-share {
+    margin: var(--space-4) 0;
+    padding: var(--space-4);
+  }
+  
+  .social-share-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .share-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-share-title {
+    font-size: var(--text-lg);
+  }
+  
+  .social-share-buttons {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+  }
+  
+  .share-button {
+    padding: 6px var(--space-3);
+    font-size: var(--text-sm);
+    min-width: 100px;
+  }
+}
+
+/* Single Page Styles with Accessibility Features */
 
 /* Page Hero Section */
 .page-hero {

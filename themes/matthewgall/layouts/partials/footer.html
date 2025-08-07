@@ -13,7 +13,7 @@
           <h4 class="footer-heading">Connect</h4>
           <div class="social-links">
             {{ range $name, $url := .Site.Params.social }}
-              <a href="{{ $url }}" class="social-link" rel="noopener noreferrer" target="_blank" aria-label="{{ $name }}">
+              <a href="{{ $url }}" class="social-link" rel="noopener noreferrer" target="_blank" aria-label="{{ partial "social-display-name.html" $name }}">
                 {{ partial "social-icon.html" $name }}
               </a>
             {{ end }}

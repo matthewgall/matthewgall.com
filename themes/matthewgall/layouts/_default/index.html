@@ -159,9 +159,9 @@
         {{ if .Site.Params.social }}
           <div class="social-links-large">
             {{ range $name, $url := .Site.Params.social }}
-              <a href="{{ $url }}" class="social-link-large" rel="noopener noreferrer" target="_blank" aria-label="{{ $name | title }}">
+              <a href="{{ $url }}" class="social-link-large" rel="noopener noreferrer" target="_blank" aria-label="{{ partial "social-display-name.html" $name }}">
                 {{ partial "social-icon.html" $name }}
-                <span>{{ $name | title }}</span>
+                <span>{{ partial "social-display-name.html" $name }}</span>
               </a>
             {{ end }}
           </div>

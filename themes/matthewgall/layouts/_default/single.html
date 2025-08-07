@@ -45,6 +45,11 @@
     <div class="prose-content">
       {{ .Content }}
       
+      <!-- Social Share for posts -->
+      {{ if eq .Type "posts" }}
+        {{ partial "social-share.html" . }}
+      {{ end }}
+      
       <!-- Accessibility features -->
       <div class="content-accessibility" role="complementary" aria-label="Content accessibility options">
         <details class="accessibility-panel">
