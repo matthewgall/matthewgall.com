@@ -2510,7 +2510,6 @@ a:focus {
 
 /* Accessibility Panel */
 .content-accessibility {
-  margin-top: var(--space-12);
   margin-bottom: var(--space-16);
   padding-top: var(--space-8);
 }
