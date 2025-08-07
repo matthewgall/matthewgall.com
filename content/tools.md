@@ -5,7 +5,7 @@ layout: staticpage
 
 Building useful tools that solve real problems is what I love most about development. Here's a collection of web services and utilities I've created to make working with network data, DNS, and APIs easier for developers and system administrators.
 
-## 🌐 Network & DNS Tools
+## 🌐 Developer & Infrastructure Tools
 
 ### 🔍 asnjson.com
 **IP to ASN Lookup Made Simple**
@@ -50,6 +50,30 @@ A clean, fast alternative to services like canhazip.com. Get your public IP addr
 **Perfect for:** Scripts, monitoring, network diagnostics
 
 [🚀 Try it now](https://ipinfo.in) • [📂 View source](https://github.com/matthewgall/ipinfo.in)
+
+---
+
+### 🛡️ throwaway.cloud
+**Disposable Email Detection Made Simple**
+
+Identify throwaway and temporary email addresses in real-time to prevent fraud and abuse while respecting user privacy. Built with a serverless architecture delivering sub-50ms response times globally, this API helps businesses make informed decisions without compromising legitimate privacy use cases.
+
+**Perfect for:** Fraud prevention, user registration validation, platform security, e-commerce protection
+
+[🚀 Try it now](https://throwaway.cloud)
+
+---
+
+## ⛽ Consumer Applications
+
+### 🚗 fuelaround.me
+**Find the Cheapest Fuel Near You**
+
+Never overpay for petrol or diesel again! This web app analyzes real-time fuel price data across the UK to help you find the cheapest stations in your area. Built with modern web technologies and updated multiple times daily with the latest pricing information.
+
+**Perfect for:** UK drivers, fleet managers, anyone wanting to save money on fuel
+
+[🚀 Try it now](https://fuelaround.me) • [📂 View source](https://github.com/matthewgall/fuelfeed)
 
 ---
 
