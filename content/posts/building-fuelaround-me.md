@@ -1,6 +1,6 @@
 ---
 title: "Building fuelaround.me: A UK Fuel Price Analysis Tool"
-date: 2025-08-07T14:30:00Z
+date: 2025-08-07T13:30:00Z
 draft: false
 author: "Matthew Gall"
 tags: ["cloudflare", "serverless", "architecture", "fuel", "fuel-prices", "price-comparison", "price-mapping", "price-analysis", "price-data"]
