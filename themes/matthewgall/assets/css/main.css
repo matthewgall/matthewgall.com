@@ -166,13 +166,16 @@
     /* Icon theming */
     --icon-invert: 1;
     
+    /* Dark mode shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
   }
-}/* Base Styles & Reset */
+}
+
+/* Base Styles & Reset */
 
 /* Box sizing reset */
 *,
@@ -1147,9 +1150,6 @@ a:focus {
   margin-bottom: var(--space-12);
 }
 
-.footer-section {
-  /* Grid item styling handled by parent */
-}
 
 .footer-title {
   font-size: var(--text-lg);
@@ -2383,6 +2383,15 @@ a:focus {
   max-width: 800px;
 }
 
+/* Post Hero Summary */
+.page-hero .post-hero-summary {
+  font-size: var(--text-base);
+  color: white;
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* Post Meta in Hero */
 .page-hero .post-meta {
   display: flex;
@@ -2431,6 +2440,10 @@ a:focus {
   color: var(--text-secondary);
 }
 
+:root[data-theme="dark"] .page-hero .post-hero-summary {
+  color: var(--text-secondary);
+}
+
 :root[data-theme="dark"] .page-hero .post-meta,
 :root[data-theme="dark"] .page-hero .post-meta > * {
   color: var(--text-muted);
@@ -2464,6 +2477,10 @@ a:focus {
   }
 
   :root:not([data-theme]) .page-hero .page-summary {
+    color: var(--text-secondary);
+  }
+
+  :root:not([data-theme]) .page-hero .post-hero-summary {
     color: var(--text-secondary);
   }
 
@@ -2598,18 +2615,6 @@ a:focus {
   box-shadow: var(--shadow-md);
 }
 
-/* Screen reader only text */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
 /* Accessibility Panel */
 .content-accessibility {
