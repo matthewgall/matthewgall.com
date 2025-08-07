@@ -8,7 +8,7 @@ I love connecting with people who share my passion for technology, have interest
 ## 📧 Email
 **The best way to reach me for professional inquiries**
 
-[✉️ hello@matthewgall.com](mailto:hello@matthewgall.com)
+**hello** [at] **matthewgall** [dot] **com**
 
 Perfect for project discussions, collaboration opportunities, technical questions, or any detailed conversations.
 
