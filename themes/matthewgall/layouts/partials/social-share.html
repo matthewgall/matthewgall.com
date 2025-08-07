@@ -43,6 +43,16 @@
       <span>{{ partial "social-display-name.html" "threads" }}</span>
     </a>
 
+    <!-- Mastodon -->
+    <a href="https://mastodonshare.com/?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="share-button mastodon"
+       aria-label="Share on Mastodon">
+      {{ partial "social-icon.html" "mastodon" }}
+      <span>{{ partial "social-display-name.html" "mastodon" }}</span>
+    </a>
+
     <!-- Copy Link -->
     <button class="share-button copy-link" 
             data-url="{{ .Permalink }}" 

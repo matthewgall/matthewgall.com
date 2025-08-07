@@ -21,10 +21,11 @@ pagerSize = 5
   og_image = "/images/og-image.png"
   
   [params.social]
-    twitter = "https://twitter.com/matthewgall"
+    bluesky = "https://bsky.app/profile/matthewgall.com"
     github = "https://github.com/matthewgall"
     linkedin = "https://linkedin.com/in/matthewgall"
-
+    mastodon = "https://toot.wales/@matthewgall"
+    twitter = "https://twitter.com/matthewgall"
 
 [params.twitter]
   # set Twitter handles for Twitter cards

@@ -100,6 +100,9 @@
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
+  
+  /* Icon theming */
+  --icon-invert: 0;
 }
 
 /* Dark Theme */
@@ -124,6 +127,9 @@
   --warning: #fbbf24;
   --error: #f87171;
   --info: #60a5fa;
+  
+  /* Icon theming */
+  --icon-invert: 1;
   
   /* Adjust shadows for dark mode */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
@@ -156,6 +162,9 @@
     --warning: #fbbf24;
     --error: #f87171;
     --info: #60a5fa;
+    
+    /* Icon theming */
+    --icon-invert: 1;
     
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
@@ -2210,6 +2219,16 @@ a:focus {
 .share-button.threads:hover {
   background: linear-gradient(135deg, #000000, #333333);
   border-color: #000000;
+  color: white;
+}
+
+.share-button.threads:hover img {
+  filter: brightness(0) saturate(100%) invert(1) !important;
+}
+
+.share-button.mastodon:hover {
+  background: linear-gradient(135deg, #6364ff, #563acc);
+  border-color: #6364ff;
 }
 
 .share-button.copy-link:hover {
@@ -2241,7 +2260,7 @@ a:focus {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-3);
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
   }
   
