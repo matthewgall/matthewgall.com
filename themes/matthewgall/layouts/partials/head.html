@@ -45,17 +45,28 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
 {{ end }}
 
-<!-- Preload fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Resource hints for external resources -->
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+<!-- Preload critical hero icons (above-the-fold) -->
+{{ if .IsHome }}
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" as="image" type="image/svg+xml">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg" as="image" type="image/svg+xml">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg" as="image" type="image/svg+xml">
+{{ end }}
 
 
 <!-- Structured Data -->
 {{ partial "structured-data.html" . }}
 
-<!-- Styles -->
+<!-- Critical CSS (inlined for performance) -->
+{{ partial "critical-css.html" . }}
+
+<!-- Main Styles (non-blocking load) -->
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+<link rel="preload" href="{{ $style.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript>
 
 <!-- Theme detection script (inline for performance) -->
 <script>
@@ -65,4 +76,16 @@
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.classList.remove('no-js');
   })();
+</script>
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(() => {
+          // Fail silently - service worker is progressive enhancement
+        });
+    });
+  }
 </script>

@@ -1,5 +1,5 @@
-{{ $js := resources.Get "js/main.js" | resources.Minify }}
-<script src="{{ $js.RelPermalink }}"></script>
+{{ $js := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
 
 {{ if .Store.Get "hasMermaid" }}
   <script type="module">
