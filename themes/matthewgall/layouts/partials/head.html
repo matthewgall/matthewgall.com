@@ -63,10 +63,9 @@
 <!-- Critical CSS (inlined for performance) -->
 {{ partial "critical-css.html" . }}
 
-<!-- Main Styles (non-blocking load) -->
+<!-- Main Styles (blocking load to prevent FOUC) -->
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
-<link rel="preload" href="{{ $style.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript>
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 <!-- Theme detection script (inline for performance) -->
 <script>
