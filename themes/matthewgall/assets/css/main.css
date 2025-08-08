@@ -1638,8 +1638,8 @@ a:focus {
 .greeting-text {
   font-size: var(--text-4xl);
   font-weight: 700;
-  opacity: 0.95;
   color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1.1;
 }
 
@@ -1647,10 +1647,7 @@ a:focus {
   font-size: var(--text-4xl);
   font-weight: 700;
   color: white;
-  background: linear-gradient(45deg, #ffffff, #f0f9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   margin-left: var(--space-1);
 }
 
@@ -1676,8 +1673,9 @@ a:focus {
   font-size: var(--text-lg);
   line-height: 1.7;
   margin-bottom: var(--space-8);
-  opacity: 0.9;
   color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
 }
 
 .hero-actions {
@@ -1698,28 +1696,36 @@ a:focus {
 }
 
 .hero-actions .btn-primary {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
+  border: 1px solid white;
   backdrop-filter: blur(10px);
+  font-weight: 700;
+  text-shadow: none;
 }
 
 .hero-actions .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: white;
+  color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .hero-actions .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-actions .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   border-color: white;
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero Visual Card */
@@ -2476,29 +2482,37 @@ a:focus {
   display: flex;
   gap: var(--space-6);
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   margin-bottom: var(--space-4);
   flex-wrap: wrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
 }
 
 .page-hero .post-meta > * {
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Breadcrumb in Page Hero */
 .page-hero .breadcrumb a {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }
 
 .page-hero .breadcrumb a:hover {
   color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .page-hero .breadcrumb li[aria-current="page"] {
   color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
 }
 
 /* Dark mode page hero - more subtle gradient */
