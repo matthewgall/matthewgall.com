@@ -100,10 +100,15 @@
         });
         
         // Close menu when window is resized to desktop size
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-          if (window.innerWidth > 768 && this.isOpen) {
-            this.closeMenu();
-          }
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            // Use media query instead of reading innerWidth
+            if (window.matchMedia('(min-width: 769px)').matches && this.isOpen) {
+              this.closeMenu();
+            }
+          }, 150);
         });
       }
     }
@@ -121,7 +126,7 @@
       this.menu.classList.add('active');
       this.toggle.classList.add('active');
       this.toggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
     }
 
     closeMenu() {
@@ -129,7 +134,7 @@
       this.menu.classList.remove('active');
       this.toggle.classList.remove('active');
       this.toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     }
   }
 
@@ -173,46 +178,29 @@
       bar.className = 'reading-progress';
       bar.innerHTML = '<div class="reading-progress-fill"></div>';
       
-      // Add CSS for progress bar
-      const style = document.createElement('style');
-      style.textContent = `
-        .reading-progress {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: var(--bg-tertiary);
-          z-index: var(--z-fixed);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        
-        .reading-progress.visible {
-          opacity: 1;
-        }
-        
-        .reading-progress-fill {
-          height: 100%;
-          background: linear-gradient(90deg, var(--primary), var(--accent));
-          width: 0%;
-          transition: width 0.1s ease;
-        }
-      `;
-      document.head.appendChild(style);
+      // CSS is now in main.css to prevent layout shifts
       document.body.appendChild(bar);
       
       return bar;
     }
 
     updateProgress() {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      // Batch DOM reads to prevent forced reflow
       const scrollTop = window.pageYOffset;
-      const progress = (scrollTop / documentHeight) * 100;
       
+      // Use cached values when possible
+      if (!this.viewportHeight) {
+        this.viewportHeight = window.innerHeight;
+        this.documentHeight = document.documentElement.scrollHeight - this.viewportHeight;
+      }
+      
+      const progress = (scrollTop / this.documentHeight) * 100;
+      const clampedProgress = Math.max(0, Math.min(100, progress));
+      
+      // Use transform instead of width for better performance
       const fill = this.progressBar.querySelector('.reading-progress-fill');
-      fill.style.width = Math.max(0, Math.min(100, progress)) + '%';
+      fill.style.transform = `scaleX(${clampedProgress / 100})`;
+      fill.style.transformOrigin = 'left center';
     }
 
     init() {
@@ -240,6 +228,11 @@
             this.progressBar.classList.remove('visible');
           }
         });
+        
+        // Recalculate on resize
+        window.addEventListener('resize', () => {
+          this.viewportHeight = null; // Force recalculation
+        });
       }
     }
   }
@@ -262,45 +255,10 @@
         });
         
         const wrapper = codeBlock.parentElement;
-        wrapper.style.position = 'relative';
         wrapper.appendChild(button);
       });
       
-      // Add CSS for copy button
-      const style = document.createElement('style');
-      style.textContent = `
-        .code-copy-btn {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
-          background: var(--bg-primary);
-          color: var(--text-secondary);
-          border: 1px solid var(--border-primary);
-          border-radius: var(--radius);
-          padding: 0.25rem 0.5rem;
-          font-size: 0.75rem;
-          cursor: pointer;
-          transition: all var(--transition);
-          opacity: 0;
-        }
-        
-        pre:hover .code-copy-btn {
-          opacity: 1;
-        }
-        
-        .code-copy-btn:hover {
-          background: var(--primary);
-          color: white;
-          border-color: var(--primary);
-        }
-        
-        .code-copy-btn.copied {
-          background: var(--success);
-          color: white;
-          border-color: var(--success);
-        }
-      `;
-      document.head.appendChild(style);
+      // CSS is now in main.css to prevent layout shifts
     }
 
     async copyToClipboard(text, button) {
@@ -350,19 +308,7 @@
         });
       }
       
-      // Add CSS for lazy loading
-      const style = document.createElement('style');
-      style.textContent = `
-        img.lazy {
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-        
-        img.lazy[src] {
-          opacity: 1;
-        }
-      `;
-      document.head.appendChild(style);
+      // CSS is now in main.css to prevent layout shifts
     }
   }
 
