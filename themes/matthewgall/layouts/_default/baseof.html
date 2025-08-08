@@ -9,6 +9,7 @@
   {{ end }}
   
   {{ partial "head.html" . }}
+  {{ partial "analytics.html" . }}
 </head>
 <body class="{{ if .Site.Params.theme_preference }}theme-{{ .Site.Params.theme_preference }}{{ end }}{{ if .IsHome }} home{{ end }}">
   <div class="site-container">

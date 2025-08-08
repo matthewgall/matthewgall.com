@@ -20,6 +20,38 @@ pagerSize = 5
   # SEO and Social Media
   og_image = "/images/og-image.png"
   
+  # Analytics Configuration
+  [params.analytics]
+    # Google Analytics 4 - add your GA4 measurement ID
+    # googleAnalytics = "G-XXXXXXXXXX"
+    
+    # Plausible Analytics - uncomment and configure
+    # [params.analytics.plausible]
+    #   domain = "your-domain.com"  # defaults to baseURL
+    #   src = "https://plausible.io/js/script.js"  # optional, defaults to plausible.io
+    
+    # Fathom Analytics - add your site ID
+    # fathom = "ABCDEFGH"
+    
+    # Cloudflare Web Analytics - add your beacon token
+    # cloudflare = "your-beacon-token"
+    
+    # Clicky Web Analytics - add your site ID (numeric)
+    # clicky = 123456789
+    
+    # Matomo Analytics - self-hosted analytics
+    # [params.analytics.matomo]
+    #   url = "https://your-matomo-domain.com/"  # your Matomo instance URL
+    #   siteId = "1"  # your site ID in Matomo
+    
+    # Simple Analytics - privacy-first, GDPR compliant
+    # simpleAnalytics = true  # just enable, no config needed
+    
+    # Umami Analytics - privacy-focused, self-hosted
+    # [params.analytics.umami]
+    #   src = "https://analytics.umami.is/script.js"  # your Umami instance
+    #   websiteId = "your-website-id"
+  
   [params.social]
     bluesky = "https://bsky.app/profile/matthewgall.com"
     github = "https://github.com/matthewgall"

@@ -1,0 +1,107 @@
+{{/* 
+Analytics Support for Multiple Providers
+
+Configuration in config.toml:
+
+[params.analytics]
+  # Google Analytics 4
+  googleAnalytics = "G-XXXXXXXXXX"
+  
+  # Plausible Analytics
+  [params.analytics.plausible]
+    domain = "your-domain.com"  # optional, defaults to baseURL
+    src = "https://plausible.io/js/script.js"  # optional, defaults to plausible.io
+  
+  # Fathom Analytics
+  fathom = "ABCDEFGH"
+  
+  # Cloudflare Web Analytics
+  cloudflare = "your-beacon-token"
+  
+  # Clicky Web Analytics
+  clicky = 123456789
+  
+  # Matomo Analytics
+  [params.analytics.matomo]
+    url = "https://your-matomo-domain.com/"
+    siteId = "1"
+  
+  # Simple Analytics
+  simpleAnalytics = true
+  
+  # Umami Analytics
+  [params.analytics.umami]
+    src = "https://analytics.umami.is/script.js"
+    websiteId = "your-website-id"
+
+You can enable multiple providers simultaneously.
+*/}}
+
+{{/* Only load analytics in production and if not disabled */}}
+{{ if and (not .Site.IsServer) (ne (getenv "DISABLE_ANALYTICS") "true") }}
+
+{{/* Google Analytics 4 */}}
+{{ if .Site.Params.analytics.googleAnalytics }}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.analytics.googleAnalytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ .Site.Params.analytics.googleAnalytics }}', {
+    'anonymize_ip': true,
+    'respect_dnt': true
+  });
+</script>
+{{ end }}
+
+{{/* Plausible Analytics */}}
+{{ if .Site.Params.analytics.plausible }}
+<script defer data-domain="{{ .Site.Params.analytics.plausible.domain | default .Site.BaseURL }}" src="{{ .Site.Params.analytics.plausible.src | default "https://plausible.io/js/script.js" }}"></script>
+{{ end }}
+
+{{/* Fathom Analytics */}}
+{{ if .Site.Params.analytics.fathom }}
+<script src="https://cdn.usefathom.com/script.js" data-site="{{ .Site.Params.analytics.fathom }}" defer></script>
+{{ end }}
+
+{{/* Cloudflare Web Analytics */}}
+{{ if .Site.Params.analytics.cloudflare }}
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ .Site.Params.analytics.cloudflare }}"}'></script>
+{{ end }}
+
+{{/* Clicky Web Analytics */}}
+{{ if .Site.Params.analytics.clicky }}
+<script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push({{ .Site.Params.analytics.clicky }});</script>
+<script async src="//static.getclicky.com/js"></script>
+{{ end }}
+
+{{/* Matomo Analytics */}}
+{{ if .Site.Params.analytics.matomo }}
+<script>
+  var _paq = window._paq = window._paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="{{ .Site.Params.analytics.matomo.url | default "//matomo.example.com/" }}";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '{{ .Site.Params.analytics.matomo.siteId }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+{{ end }}
+
+{{/* Simple Analytics */}}
+{{ if .Site.Params.analytics.simpleAnalytics }}
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+{{ end }}
+
+{{/* Umami Analytics */}}
+{{ if .Site.Params.analytics.umami }}
+<script async src="{{ .Site.Params.analytics.umami.src | default "https://analytics.umami.is/script.js" }}" data-website-id="{{ .Site.Params.analytics.umami.websiteId }}"></script>
+{{ end }}
+
+{{/* End production check */}}
+{{ end }}
