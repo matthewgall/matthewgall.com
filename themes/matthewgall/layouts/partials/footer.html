@@ -2,7 +2,7 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <p class="footer-title">{{ .Site.Title }}</p>
+        <h2 class="footer-title">{{ .Site.Title }}</h2>
         {{ with .Site.Params.description }}
           <p class="footer-description">{{ . }}</p>
         {{ end }}
@@ -10,7 +10,7 @@
       
       {{ if .Site.Params.social }}
         <div class="footer-section">
-          <h4 class="footer-heading">Connect</h4>
+          <h3 class="footer-heading">Connect</h3>
           <div class="social-links">
             {{ range $name, $url := .Site.Params.social }}
               <a href="{{ $url }}" class="social-link" rel="noopener noreferrer" target="_blank" aria-label="{{ partial "social-display-name.html" $name }}">
@@ -22,12 +22,14 @@
       {{ end }}
       
       <div class="footer-section">
-        <h4 class="footer-heading">Navigation</h4>
-        <ul class="footer-nav">
-          {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
+        <h3 class="footer-heading">Navigation</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="footer-nav" role="list">
+            {{ range .Site.Menus.main }}
+              <li role="listitem"><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+        </nav>
       </div>
     </div>
     

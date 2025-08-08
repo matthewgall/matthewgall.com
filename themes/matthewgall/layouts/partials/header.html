@@ -1,9 +1,9 @@
-<header class="site-header">
-  <nav class="navbar">
+<header class="site-header" role="banner">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <!-- Logo/Site Title -->
       <div class="navbar-brand">
-        <a href="/" class="brand-link">
+        <a href="/" class="brand-link" aria-label="Go to homepage">
           {{ with .Site.Params.logo }}
             <img src="{{ . | absURL }}" alt="{{ .Site.Title }}" class="brand-logo">
           {{ else }}
@@ -13,29 +13,29 @@
       </div>
       
       <!-- Navigation Menu -->
-      <div class="navbar-menu" id="navbar-menu">
-        <ul class="navbar-nav">
+      <div class="navbar-menu" id="navbar-menu" role="menubar">
+        <ul class="navbar-nav" role="none">
           {{ if .Site.Menus.main }}
             {{ range .Site.Menus.main }}
-              <li class="nav-item">
-                <a href="{{ .URL | relURL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
+              <li class="nav-item" role="none">
+                <a href="{{ .URL | relURL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}" role="menuitem"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>
                   {{ .Name }}
                 </a>
               </li>
             {{ end }}
           {{ else }}
             <!-- Default navigation if no menu configured -->
-            <li class="nav-item">
-              <a href="/about" class="nav-link{{ if eq .RelPermalink "/about/" }} active{{ end }}">About</a>
+            <li class="nav-item" role="none">
+              <a href="/about" class="nav-link{{ if eq .RelPermalink "/about/" }} active{{ end }}" role="menuitem"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
             </li>
-            <li class="nav-item">
-              <a href="/posts" class="nav-link{{ if eq .Section "posts" }} active{{ end }}">Posts</a>
+            <li class="nav-item" role="none">
+              <a href="/posts" class="nav-link{{ if eq .Section "posts" }} active{{ end }}" role="menuitem"{{ if eq .Section "posts" }} aria-current="page"{{ end }}>Posts</a>
             </li>
-            <li class="nav-item">
-              <a href="/tools" class="nav-link{{ if eq .RelPermalink "/tools/" }} active{{ end }}">Tools</a>
+            <li class="nav-item" role="none">
+              <a href="/tools" class="nav-link{{ if eq .RelPermalink "/tools/" }} active{{ end }}" role="menuitem"{{ if eq .RelPermalink "/tools/" }} aria-current="page"{{ end }}>Tools</a>
             </li>
-            <li class="nav-item">
-              <a href="/contact" class="nav-link{{ if eq .RelPermalink "/contact/" }} active{{ end }}">Contact</a>
+            <li class="nav-item" role="none">
+              <a href="/contact" class="nav-link{{ if eq .RelPermalink "/contact/" }} active{{ end }}" role="menuitem"{{ if eq .RelPermalink "/contact/" }} aria-current="page"{{ end }}>Contact</a>
             </li>
           {{ end }}
         </ul>
@@ -60,10 +60,10 @@
           </svg>
         </button>
         
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
-          <span class="hamburger"></span>
-          <span class="hamburger"></span>
-          <span class="hamburger"></span>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="navbar-menu">
+          <span class="hamburger" aria-hidden="true"></span>
+          <span class="hamburger" aria-hidden="true"></span>
+          <span class="hamburger" aria-hidden="true"></span>
         </button>
       </div>
     </div>

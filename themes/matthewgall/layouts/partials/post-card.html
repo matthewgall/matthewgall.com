@@ -1,22 +1,22 @@
-<article class="post-card">
+<article class="post-card" role="article" aria-labelledby="post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-title">
   <div class="post-card-content">
     <header class="post-card-header">
-      <h3 class="post-card-title">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <h3 class="post-card-title" id="post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-title">
+        <a href="{{ .RelPermalink }}" aria-describedby="post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-meta{{ if or .Params.summary .Summary }} post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-excerpt{{ end }}">{{ .Title }}</a>
       </h3>
       
-      <div class="post-card-meta">
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      <div class="post-card-meta" id="post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-meta" role="doc-info">
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" aria-label="Published {{ .Date.Format "January 2, 2006" }}">
           {{ .Date.Format "Jan 2, 2006" }}
         </time>
         {{ if .ReadingTime }}
-          <span class="reading-time">{{ .ReadingTime }} min read</span>
+          <span class="reading-time" aria-label="Estimated reading time {{ .ReadingTime }} minutes">{{ .ReadingTime }} min read</span>
         {{ end }}
       </div>
     </header>
     
     {{ if or .Params.summary .Summary }}
-      <div class="post-card-excerpt">
+      <div class="post-card-excerpt" id="post-{{ with .File }}{{ .UniqueID }}{{ else }}{{ .RelPermalink | anchorize }}{{ end }}-excerpt">
         {{ if .Params.summary }}
           {{ .Params.summary }}
         {{ else }}
@@ -26,9 +26,9 @@
     {{ end }}
     
     {{ if .Params.tags }}
-      <div class="post-card-tags">
+      <div class="post-card-tags" role="group" aria-label="Post tags">
         {{ range first 3 .Params.tags }}
-          <span class="tag">{{ . }}</span>
+          <span class="tag" role="button" tabindex="0" aria-label="Tag: {{ . }}">{{ . }}</span>
         {{ end }}
       </div>
     {{ end }}

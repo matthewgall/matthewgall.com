@@ -12,10 +12,11 @@
   {{ partial "analytics.html" . }}
 </head>
 <body class="{{ if .Site.Params.theme_preference }}theme-{{ .Site.Params.theme_preference }}{{ end }}{{ if .IsHome }} home{{ end }}">
+  <a href="#main-content" class="skip-link sr-only-focusable">Skip to main content</a>
   <div class="site-container">
     {{ partial "header.html" . }}
     
-    <main class="main-content">
+    <main class="main-content" id="main-content">
       {{ block "main" . }}{{ end }}
     </main>
     

@@ -38,7 +38,7 @@ You can enable multiple providers simultaneously.
 */}}
 
 {{/* Only load analytics in production and if not disabled */}}
-{{ if and (not .Site.IsServer) (ne (getenv "DISABLE_ANALYTICS") "true") }}
+{{ if and (not hugo.IsServer) (ne (getenv "DISABLE_ANALYTICS") "true") }}
 
 {{/* Google Analytics 4 */}}
 {{ if .Site.Params.analytics.googleAnalytics }}

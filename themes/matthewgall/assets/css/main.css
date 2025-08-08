@@ -86,9 +86,9 @@
   --bg-hover: #e2e8f0;
   
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
-  --text-muted: #94a3b8;
+  --text-secondary: #334155;
+  --text-tertiary: #475569;
+  --text-muted: #64748b;
   
   --border-primary: #e2e8f0;
   --border-secondary: #cbd5e1;
@@ -113,9 +113,9 @@
   --bg-hover: #475569;
   
   --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e1;
+  --text-muted: #94a3b8;
   
   --border-primary: #334155;
   --border-secondary: #475569;
@@ -148,9 +148,9 @@
     --bg-hover: #475569;
     
     --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-tertiary: #94a3b8;
-    --text-muted: #64748b;
+    --text-secondary: #e2e8f0;
+    --text-tertiary: #cbd5e1;
+    --text-muted: #94a3b8;
     
     --border-primary: #334155;
     --border-secondary: #475569;
@@ -394,6 +394,39 @@ a:focus {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Skip Link - visible when focused */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }/* Component Styles */
 
 /* Buttons */
@@ -2346,7 +2379,8 @@ a:focus {
 .breadcrumb li:not(:last-child)::after {
   content: '›';
   margin: 0 var(--space-2);
-  color: var(--text-muted);
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .breadcrumb a {
@@ -2839,6 +2873,70 @@ body.small-font {
   .accessibility-options {
     grid-template-columns: 1fr;
   }
+}
+
+/* Enhanced Focus Management */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* Enhanced keyboard navigation for interactive elements */
+.tag:focus,
+.tag:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  background-color: var(--bg-hover);
+}
+
+/* Improve focus visibility for post card links */
+.post-card-title a:focus,
+.post-card-title a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* Enhanced navigation focus states */
+.nav-link:focus,
+.nav-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  background-color: var(--bg-hover);
+  border-radius: var(--radius);
+}
+
+/* Mobile menu toggle focus */
+.mobile-menu-toggle:focus,
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  background-color: var(--bg-hover);
+}
+
+/* Theme toggle focus */
+.theme-toggle:focus,
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  background-color: var(--bg-hover);
+}
+
+/* Skip link enhanced visibility */
+.skip-link:focus,
+.skip-link:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Accessibility panel button focus */
+.accessibility-panel .accessibility-options button:focus,
+.accessibility-panel .accessibility-options button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  transform: translateY(-1px);
 }
 
 /* Print Styles */
