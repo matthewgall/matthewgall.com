@@ -83,9 +83,31 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
-        .catch(() => {
-          // Fail silently - service worker is progressive enhancement
+        .then(registration => {
+          console.log('Service Worker: Registered successfully', registration.scope);
+          
+          // Listen for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            console.log('Service Worker: Update found, installing new version');
+            
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'activated') {
+                console.log('Service Worker: New version activated');
+              }
+            });
+          });
+        })
+        .catch(error => {
+          console.log('Service Worker: Registration failed', error);
         });
+
+      // Listen for service worker messages
+      navigator.serviceWorker.addEventListener('message', event => {
+        console.log('Service Worker: Message received', event.data);
+      });
     });
+  } else {
+    console.log('Service Worker: Not supported in this browser');
   }
 </script>
