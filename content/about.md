@@ -1,6 +1,7 @@
 ---
 title: "About"
 layout: staticpage
+description: "Learn about Matthew Gall - anti-abuse engineer, security professional, and software developer with a decade of experience at Cloudflare building tools that make the internet safer."
 ---
 
 Hi, I'm Matthew Gall – an anti-abuse, information security, and software engineer with a passion for building tools that make the internet a safer place.

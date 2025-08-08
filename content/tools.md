@@ -1,6 +1,7 @@
 ---
 title: "Tools & Projects"
 layout: staticpage
+description: "Discover web services and developer tools created by Matthew Gall, including asnjson.com, dnsjson.com, and other utilities for network data, DNS queries, and API development."
 ---
 
 Building useful tools that solve real problems is what I love most about development. Here's a collection of web services and utilities I've created to make working with network data, DNS, and APIs easier for developers and system administrators.

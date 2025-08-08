@@ -1,6 +1,7 @@
 ---
 title: "Get In Touch"
 layout: staticpage
+description: "Connect with Matthew Gall for collaboration, project inquiries, or tech discussions. Multiple ways to reach out including email, social media, and professional networks."
 ---
 
 I love connecting with people who share my passion for technology, have interesting problems to solve, or just want to chat about development and innovation. Whether you're looking to collaborate, need help with a project, or want to discuss an idea, I'm always excited to hear from fellow developers and thinkers.

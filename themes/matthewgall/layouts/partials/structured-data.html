@@ -1,0 +1,74 @@
+{{/* Structured Data (JSON-LD) for SEO */}}
+<script type="application/ld+json">
+{{ if .IsHome }}
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ .Site.Params.author }}",
+  "jobTitle": "Anti-Abuse Engineer & Security Professional",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  {{ if .Site.Params.social }}"sameAs": [
+    {{- $socialUrls := slice -}}
+    {{- range $name, $url := .Site.Params.social -}}
+      {{- $socialUrls = $socialUrls | append $url -}}
+    {{- end -}}
+    {{- range $i, $url := $socialUrls -}}
+    "{{ $url }}"{{ if ne $i (sub (len $socialUrls) 1) }},{{ end }}
+    {{- end -}}
+  ],{{ end }}
+  "knowsAbout": [
+    "Trust & Safety",
+    "Anti-Abuse Engineering", 
+    "Security Intelligence",
+    "Threat Analysis",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Serverless Computing"
+  ]
+}
+{{ else if eq .Type "posts" }}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "url": "{{ .Permalink }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  }{{ with .Params.tags }},
+  "keywords": {{ . | jsonify }}{{ end }}{{ with .Site.Params.og_image }},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ . | absURL }}"
+  }{{ end }}
+}
+{{ else }}
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ .Title }}",
+  "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}",
+  "url": "{{ .Permalink }}",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+{{ end }}
+</script>

@@ -1,6 +1,12 @@
 baseurl = "/"
 languageCode = "en-us"
 theme = "matthewgall"
+
+# RSS Feed Configuration
+[params.rss]
+  limit = 20
+  fulltext = false
+  
 [pagination]
 pagerSize = 5
 
