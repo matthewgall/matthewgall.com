@@ -37,8 +37,8 @@ Configuration in config.toml:
 You can enable multiple providers simultaneously.
 */}}
 
-{{/* Only load analytics in production and if not disabled */}}
-{{ if and (not hugo.IsServer) (ne (getenv "DISABLE_ANALYTICS") "true") }}
+{{/* Only load analytics in production */}}
+{{ if not hugo.IsServer }}
 
 {{/* Google Analytics 4 */}}
 {{ if .Site.Params.analytics.googleAnalytics }}
