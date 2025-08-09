@@ -1549,7 +1549,53 @@ a:focus {
 /* Print Utilities */
 @media print {
   .print\:hidden { display: none !important; }
-}/* Homepage Specific Styles */
+}
+
+/* Footnotes */
+.footnotes {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.footnotes::before {
+  content: "Footnotes";
+  display: block;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  color: var(--text);
+}
+
+.footnotes ol {
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+.footnotes li {
+  margin-bottom: var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.footnotes p {
+  margin: 0 !important;
+  font-size: var(--text-sm);
+}
+
+.footnote-ref {
+  font-size: var(--text-xs);
+  vertical-align: super;
+  line-height: 0;
+}
+
+.footnote-backref {
+  font-size: var(--text-xs);
+  margin-left: var(--space-1);
+}
+
+/* Homepage Specific Styles */
 
 /* Modern Hero Section */
 .hero-modern {
