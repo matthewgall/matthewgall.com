@@ -4,6 +4,7 @@ date: 2025-08-07T13:30:00Z
 draft: false
 author: "Matthew Gall"
 tags: ["cloudflare", "serverless", "architecture", "fuel", "fuel-prices", "price-comparison", "price-mapping", "price-analysis", "price-data"]
+categories: ["Technology", "Projects"]
 summary: "A technical deep-dive into building fuelaround.me, a UK fuel price mapping tool. Learn about the Cloudflare Workers architecture, data integration challenges, and what mandatory fuel price transparency legislation could mean for the platform."
 ---
 
