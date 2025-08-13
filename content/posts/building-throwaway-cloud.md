@@ -249,7 +249,7 @@ Sub-50ms responses enable real-time integration without user experience impact.
 Minute-level detection of new threats versus hour-level batch updates.
 
 **💰 80% Infrastructure Cost Reduction**  
-Operational efficiency enables expanded free tier access.
+Operational efficiency enables keeping the service completely free.
 
 ---
 
@@ -265,7 +265,7 @@ Meet compliance requirements while reducing friction for legitimate users. Credi
 From social networks to SaaS platforms—identify suspicious accounts before they can spam, manipulate reviews, or abuse free trials. Works seamlessly with existing fraud prevention stacks.
 
 **⚡ Integration in Minutes, Not Months**  
-Simple REST API with comprehensive docs. Most developers integrate throwaway detection in under an hour. Free tier includes 10,000 monthly requests—enough for most startups to get started.
+Simple REST API with comprehensive docs. Most developers integrate throwaway detection in under an hour. Completely free with generous rate limits.
 
 ---
 
