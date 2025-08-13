@@ -256,7 +256,7 @@ Operational efficiency enables expanded free tier access.
 ## Use Cases in the Wild
 
 **🛒 Stop E-commerce Fraud Before It Starts**  
-Catch discount abuse, fake reviews, and bot accounts at signup. One major retailer reduced fraudulent registrations by 73% after integrating throwaway.cloud into their checkout flow.
+Catch discount abuse, fake reviews, and bot accounts at signup before they can cause damage.
 
 **🏦 Strengthen Financial Onboarding**  
 Meet compliance requirements while reducing friction for legitimate users. Credit unions and fintech startups use our API to flag high-risk signups without blocking privacy-conscious users.
