@@ -1,5 +1,5 @@
 ---
-title: "Consulting Services"
+title: "Consulting"
 layout: staticpage
 description: "Expert consulting in Trust & Safety, anti-abuse engineering, child safety, and content moderation. A decade of experience at Cloudflare building systems that protect users and platforms at internet scale."
 ---
