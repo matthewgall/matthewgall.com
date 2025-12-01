@@ -104,17 +104,23 @@ I can help bridge the gap between technical reality and policy goals, ensuring r
 
 ## Engagement Types
 
-**Strategic Advisory** - Ongoing consultation on Trust & Safety strategy, regulatory compliance, and safety operations
+### Strategic Advisory
+Ongoing consultation on Trust & Safety strategy, regulatory compliance, and safety operations.
 
-**Technical Implementation** - Hands-on work designing and building detection systems, moderation tools, and safety infrastructure
+### Technical Implementation
+Hands-on work designing and building detection systems, moderation tools, and safety infrastructure.
 
-**Crisis Response** - Immediate help with safety incidents, including CSAM reports, credible threats, or coordinated attacks
+### Crisis Response
+Immediate help with safety incidents, including CSAM reports, credible threats, or coordinated attacks.
 
-**Training & Workshops** - Educating your team on content moderation best practices, threat patterns, or regulatory requirements
+### Training & Workshops
+Educating your team on content moderation best practices, threat patterns, or regulatory requirements.
 
-**Expert Assessment** - Third-party evaluation of existing safety systems, moderation quality, or compliance posture
+### Expert Assessment
+Third-party evaluation of existing safety systems, moderation quality, or compliance posture.
 
-**Policy Analysis** - Technical assessment of proposed regulations or policy frameworks
+### Policy Analysis
+Technical assessment of proposed regulations or policy frameworks.
 
 ## What Clients Say
 
