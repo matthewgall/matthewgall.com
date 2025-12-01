@@ -159,7 +159,7 @@ Whether you're building a new platform, improving existing safety systems, or na
 
 ### Get In Touch
 
-**Email**: hello [at] matthewgall [dot] com
+**Email**: consulting [at] matthewgall [dot] com
 
 Perfect for detailed discussions about your specific challenges and how I might help.
 
